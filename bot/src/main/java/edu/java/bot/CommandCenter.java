@@ -34,12 +34,12 @@ public class CommandCenter {
                 }
 
                 lastCommand = it;
-                return it.getMessage(id, message);
+                return it.getMessage(id, message).trim();
             }
         }
 
         if (lastCommand != null && lastCommand.waitNextCommand()) {
-            return lastCommand.getMessage(id, message);
+            return lastCommand.getMessage(id, message).trim();
         }
 
         return "Unexpected command";
