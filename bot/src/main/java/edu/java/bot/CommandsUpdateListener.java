@@ -1,10 +1,10 @@
-package edu.java.bot.commands;
+package edu.java.bot;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
 import com.pengrad.telegrambot.request.SendMessage;
-import edu.java.bot.CommandCenter;
+import edu.java.bot.commands.CommandCenter;
 import java.util.List;
 
 public class CommandsUpdateListener implements UpdatesListener {

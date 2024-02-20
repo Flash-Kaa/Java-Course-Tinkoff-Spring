@@ -1,11 +1,5 @@
-package edu.java.bot;
+package edu.java.bot.commands;
 
-import edu.java.bot.commands.Command;
-import edu.java.bot.commands.HelpCommand;
-import edu.java.bot.commands.ListCommand;
-import edu.java.bot.commands.StartCommand;
-import edu.java.bot.commands.TrackCommand;
-import edu.java.bot.commands.UntrackCommand;
 import java.util.List;
 import org.springframework.stereotype.Component;
 
@@ -34,12 +28,12 @@ public class CommandCenter {
                 }
 
                 lastCommand = it;
-                return it.getMessage(id, message).trim();
+                return it.execute(id, message).trim();
             }
         }
 
         if (lastCommand != null && lastCommand.waitNextCommand()) {
-            return lastCommand.getMessage(id, message).trim();
+            return lastCommand.execute(id, message).trim();
         }
 
         return "Unexpected command";

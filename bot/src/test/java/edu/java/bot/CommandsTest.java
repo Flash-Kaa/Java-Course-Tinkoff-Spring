@@ -1,5 +1,6 @@
 package edu.java.bot;
 
+import edu.java.bot.commands.CommandCenter;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -73,6 +74,7 @@ public class CommandsTest {
             Assert.assertTrue(message.contains(it.getName()));
             Assert.assertTrue(message.contains(it.getDescription()));
         });
+
     }
 
     @Test

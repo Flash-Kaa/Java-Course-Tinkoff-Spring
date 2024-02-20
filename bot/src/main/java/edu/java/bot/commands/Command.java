@@ -5,7 +5,7 @@ public interface Command {
 
     String getDescription();
 
-    String getMessage(long id, String message);
+    String execute(long id, String message);
 
     boolean waitNextCommand();
 

@@ -16,7 +16,7 @@ public class ListCommand implements Command {
     }
 
     @Override
-    public String getMessage(long id, String message) {
+    public String execute(long id, String message) {
         StringBuilder sb = new StringBuilder();
         List<URI> resources = DB.getAllUserResources(id);
 

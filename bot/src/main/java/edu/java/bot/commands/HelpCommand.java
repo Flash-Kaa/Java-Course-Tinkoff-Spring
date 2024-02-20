@@ -1,14 +1,13 @@
 package edu.java.bot.commands;
 
-import edu.java.bot.CommandCenter;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class HelpCommand implements Command {
-    private final CommandCenter commandCenter;
-    private List<Command> allowedCommands;
+    private final Supplier<List<Command>> allowedCommands;
 
     public HelpCommand(CommandCenter commandCenter) {
-        this.commandCenter = commandCenter;
+        allowedCommands = commandCenter::getAllowedCommands;
     }
 
     @Override
@@ -22,14 +21,10 @@ public class HelpCommand implements Command {
     }
 
     @Override
-    public String getMessage(long id, String message) {
-        if (allowedCommands == null) {
-            allowedCommands = commandCenter.getAllowedCommands();
-        }
-
+    public String execute(long id, String message) {
         StringBuilder sb = new StringBuilder();
 
-        for (Command it : allowedCommands) {
+        for (Command it : allowedCommands.get()) {
             sb.append(it.getName())
                 .append(" - ")
                 .append(it.getDescription())

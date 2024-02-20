@@ -14,7 +14,7 @@ public class StartCommand implements Command {
     }
 
     @Override
-    public String getMessage(long id, String message) {
+    public String execute(long id, String message) {
         DB.addUser(id);
         return "User added";
     }

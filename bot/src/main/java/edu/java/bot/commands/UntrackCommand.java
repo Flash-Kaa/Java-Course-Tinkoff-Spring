@@ -20,9 +20,9 @@ public class UntrackCommand implements Command {
     }
 
     @Override
-    public String getMessage(long id, String message) {
+    public String execute(long id, String message) {
         if (nextCommand != null) {
-            String botMessage = nextCommand.getMessage(id, message);
+            String botMessage = nextCommand.execute(id, message);
 
             if (!nextCommand.waitNextCommand()) {
                 nextCommand = null;

@@ -6,10 +6,10 @@ import java.util.List;
 import kotlin.Pair;
 
 public class DB {
+    private static List<Pair<Long, URI>> db = new ArrayList<>();
+
     private DB() {
     }
-
-    private static List<Pair<Long, URI>> db = new ArrayList<>();
 
     public static void add(long id, URI uri) {
         db.add(new Pair<>(id, uri));
